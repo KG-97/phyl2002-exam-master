@@ -48,11 +48,17 @@ def ask_mcq(question: Dict) -> bool:
 def ask_short(question: Dict) -> bool:
     print("\n" + wrap(question["stem"]))
     response = input("Your answer: ").strip()
-    hits, matched = evaluate_keywords(response, question.get("keywords", []))
-    print(f"Key points: {', '.join(question.get('keywords', []))}")
-    print(f"You mentioned: {', '.join(matched) if matched else 'none of the expected keywords'}")
+    keywords = question.get("keywords", [])
+    hits, matched = evaluate_keywords(response, keywords)
+    if keywords:
+        print(f"Key points: {', '.join(keywords)}")
+        print(f"You mentioned: {', '.join(matched) if matched else 'none of the expected keywords'}")
+    else:
+        print("Key points: none provided (graded as correct)")
+        print(f"You mentioned: {response if response else 'no answer provided'}")
     print(f"Explanation: {question['explanation']}\n")
-    return hits >= max(1, len(question.get("keywords", [])) // 2)
+    required_hits = 0 if not keywords else max(1, len(keywords) // 2)
+    return hits >= required_hits
 
 
 def run_quiz(content: Dict[str, List[Dict]], mode: str, count: int, topic: str | None, seed: int | None) -> None:
@@ -141,6 +147,22 @@ def show_topics(content: Dict[str, List[Dict]]) -> None:
         print(f" • {topic}")
 
 
+def render_stats(content: Dict[str, List[Dict]]) -> None:
+    questions = content.get("questions", [])
+    mcq = sum(question.get("type") == "mcq" for question in questions)
+    short = sum(question.get("type") == "short" for question in questions)
+
+    print("Content summary")
+    print("-" * 40)
+    print(f"Mnemonics : {len(content.get('mnemonics', []))}")
+    print(f"Questions : {len(questions)} (MCQ: {mcq}, Short: {short})")
+    print(f"Flashcards: {len(content.get('flashcards', []))}")
+    print(f"Study blocks: {len(content.get('study_blocks', []))}")
+    print("Topics:")
+    for topic in topics_from_content(content):
+        print(f" • {topic}")
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description="Interactive PHYL2002 exam preparation aid with mnemonics, questions, and flashcards."
@@ -167,6 +189,7 @@ def build_parser() -> argparse.ArgumentParser:
     plan_parser.add_argument("--minutes", type=int, default=60, help="Total minutes available.")
 
     subparsers.add_parser("topics", help="List available topics.")
+    subparsers.add_parser("stats", help="Show content counts and topic coverage.")
     return parser
 
 
@@ -187,6 +210,8 @@ def main(argv: List[str] | None = None) -> None:
             render_plan(plan)
         elif args.command == "topics":
             show_topics(content)
+        elif args.command == "stats":
+            render_stats(content)
     except ValueError as error:
         parser.error(str(error))
 
