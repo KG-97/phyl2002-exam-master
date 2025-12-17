@@ -1,0 +1,274 @@
+{
+  "mnemonics": [
+    {
+      "topic": "Action Potentials",
+      "title": "SALT for faster conduction",
+      "mnemonic": "Saltatory conduction Accelerates with myelin, Large axon diameter, and Tight insulation",
+      "explanation": "Summarizes why myelination speeds conduction: myelin allows current to jump between nodes, large diameters lower resistance, and tight insulation minimizes current loss."
+    },
+    {
+      "topic": "Ion Channel States",
+      "title": "CLOSeD until ready",
+      "mnemonic": "Closed → depolarization opens → Open → time-dependent inactivation gate → Stuck (inactivated) → repolarization resets to Closed",
+      "explanation": "Tracks the sequence of voltage-gated sodium channel states during an action potential."
+    },
+    {
+      "topic": "Synaptic Transmission",
+      "title": "SNARE SNAP",
+      "mnemonic": "SNAREs Need Available calcium to Promote vesicle fusion",
+      "explanation": "Reminds you that Ca²⁺ entry triggers synaptotagmin to clamp/unclamp SNARE complexes for vesicle fusion."
+    },
+    {
+      "topic": "Membrane Transport",
+      "title": "PASTA for active transport",
+      "mnemonic": "Primary uses ATP; Secondary Takes Advantage of a gradient",
+      "explanation": "Distinguishes primary active transport (direct ATP hydrolysis) from secondary (uses pre-existing gradients)."
+    },
+    {
+      "topic": "Skeletal Muscle",
+      "title": "ACTIN to start contraction",
+      "mnemonic": "Action potential down T-tubule → Ca²⁺ release → Troponin binds Ca²⁺ → Inhibition lifted → myosiN binds",
+      "explanation": "Tracks the excitation–contraction coupling sequence."
+    },
+    {
+      "topic": "Smooth Muscle",
+      "title": "CAMK Light",
+      "mnemonic": "Calcium binds Calmodulin → activates MLCK → Kinase phosphorylates light chains → crossbridge cycling",
+      "explanation": "Captures the reliance on Ca²⁺/calmodulin and myosin light-chain kinase instead of troponin."
+    },
+    {
+      "topic": "Cell Signaling",
+      "title": "GAS for Gs",
+      "mnemonic": "Gs → Adenylyl cyclase → increased cAMP → Stimulates PKA",
+      "explanation": "Outlines the canonical stimulatory G protein cascade."
+    },
+    {
+      "topic": "Homeostasis",
+      "title": "SENSOR → INTEGRATOR → EFFECTOR",
+      "mnemonic": "Detect deviation → Compare to set point → Apply response",
+      "explanation": "Basic negative feedback loop structure for physiological control."
+    }
+  ],
+  "questions": [
+    {
+      "id": "mcq-1",
+      "type": "mcq",
+      "topic": "Action Potentials",
+      "stem": "Which factor most directly increases conduction velocity in a myelinated axon?",
+      "choices": [
+        "Higher density of voltage-gated Na⁺ channels at internodes",
+        "Increased leak conductance",
+        "Longer spacing between nodes of Ranvier up to a physiological limit",
+        "Greater intracellular resistance"
+      ],
+      "answer": "C",
+      "explanation": "Myelin allows nodes to be spaced farther apart while preserving depolarization, so fewer regenerations are needed. Internodes have low Na⁺ channel density and low leak."
+    },
+    {
+      "id": "mcq-2",
+      "type": "mcq",
+      "topic": "Membrane Transport",
+      "stem": "The Na⁺/glucose cotransporter in the intestine is best described as which process?",
+      "choices": [
+        "Primary active transport powered by ATP hydrolysis at the transporter",
+        "Secondary active transport driven by the Na⁺ gradient created by the Na⁺/K⁺-ATPase",
+        "Facilitated diffusion independent of other gradients",
+        "Electrogenic antiport"
+      ],
+      "answer": "B",
+      "explanation": "It couples glucose entry to the inward Na⁺ gradient established by the Na⁺/K⁺-ATPase, making it secondary active symport."
+    },
+    {
+      "id": "mcq-3",
+      "type": "mcq",
+      "topic": "Synaptic Transmission",
+      "stem": "What triggers synaptic vesicle fusion at a chemical synapse?",
+      "choices": [
+        "Direct depolarization of the vesicle membrane",
+        "Binding of Ca²⁺ to synaptotagmin after voltage-gated Ca²⁺ channels open",
+        "Accumulation of acetylcholine in the cleft",
+        "SNARE complex hydrolyzing ATP"
+      ],
+      "answer": "B",
+      "explanation": "Ca²⁺ entry through voltage-gated channels binds synaptotagmin, which modulates SNARE complexes to drive fusion."
+    },
+    {
+      "id": "mcq-4",
+      "type": "mcq",
+      "topic": "Skeletal Muscle",
+      "stem": "During skeletal muscle contraction, tropomyosin moves because:",
+      "choices": [
+        "Calcium binds tropomyosin directly",
+        "Myosin head phosphorylation displaces it",
+        "Calcium binds troponin C, changing the troponin-tropomyosin complex",
+        "ADP release from myosin pushes it aside"
+      ],
+      "answer": "C",
+      "explanation": "Ca²⁺ binds troponin C, altering the troponin complex so tropomyosin shifts to expose actin binding sites."
+    },
+    {
+      "id": "mcq-5",
+      "type": "mcq",
+      "topic": "Smooth Muscle",
+      "stem": "Which event is essential for initiating crossbridge cycling in smooth muscle?",
+      "choices": [
+        "Troponin binding to Ca²⁺",
+        "Phosphorylation of myosin light chains by MLCK",
+        "Removal of tropomyosin from actin",
+        "Opening of the ryanodine receptor"
+      ],
+      "answer": "B",
+      "explanation": "Smooth muscle relies on Ca²⁺/calmodulin activation of MLCK, which phosphorylates myosin light chains to permit cycling."
+    },
+    {
+      "id": "mcq-6",
+      "type": "mcq",
+      "topic": "Homeostasis",
+      "stem": "Which best illustrates negative feedback?",
+      "choices": [
+        "Oxytocin release during labor",
+        "Platelet activation during clotting",
+        "Baroreceptor-mediated reduction of sympathetic outflow after blood pressure rises",
+        "Feed-forward salivation when smelling food"
+      ],
+      "answer": "C",
+      "explanation": "Baroreceptor activation reduces sympathetic tone to counteract elevated blood pressure, opposing the original change."
+    },
+    {
+      "id": "short-1",
+      "type": "short",
+      "topic": "Action Potentials",
+      "stem": "Name two reasons refractory periods prevent action potentials from immediately re-firing at the same site.",
+      "keywords": [
+        "inactivated sodium channels",
+        "Na+ channels reset with repolarization",
+        "hyperpolarization",
+        "elevated threshold",
+        "K+ efflux"
+      ],
+      "explanation": "Voltage-gated Na⁺ channels are inactivated until repolarization, and the after-hyperpolarization raises threshold because many channels remain inactivated while K⁺ conductance stays high."
+    },
+    {
+      "id": "short-2",
+      "type": "short",
+      "topic": "Membrane Transport",
+      "stem": "List two differences between primary and secondary active transport.",
+      "keywords": [
+        "ATP hydrolysis",
+        "ion gradient",
+        "pump",
+        "carrier",
+        "coupled"
+      ],
+      "explanation": "Primary active transporters hydrolyze ATP directly at the transporter (e.g., Na⁺/K⁺-ATPase). Secondary active transporters use a gradient created by a primary pump to drive co-transport or counter-transport."
+    },
+    {
+      "id": "short-3",
+      "type": "short",
+      "topic": "Synaptic Transmission",
+      "stem": "How does increasing extracellular Mg²⁺ affect NMDA receptor-mediated EPSPs?",
+      "keywords": [
+        "blocks channel",
+        "voltage dependent",
+        "more hyperpolarized",
+        "requires depolarization",
+        "less current"
+      ],
+      "explanation": "Higher Mg²⁺ strengthens the voltage-dependent block of NMDA channels, so more depolarization is required to relieve the block and EPSCs are smaller."
+    },
+    {
+      "id": "short-4",
+      "type": "short",
+      "topic": "Smooth Muscle",
+      "stem": "Why can smooth muscle maintain tone with low ATP use?",
+      "keywords": [
+        "latch state",
+        "dephosphorylated",
+        "slow cycling",
+        "myosin light chain phosphatase",
+        "sustained force"
+      ],
+      "explanation": "After myosin is dephosphorylated, crossbridges can enter a latch state with slow detachment, sustaining force with minimal ATP consumption."
+    }
+  ],
+  "flashcards": [
+    {
+      "topic": "Action Potentials",
+      "front": "Define threshold potential.",
+      "back": "Membrane voltage at which inward Na⁺ current exceeds outward current, triggering regenerative channel opening."
+    },
+    {
+      "topic": "Action Potentials",
+      "front": "What maintains resting membrane potential in neurons?",
+      "back": "High K⁺ permeability through leak channels and the Na⁺/K⁺-ATPase maintaining gradients."
+    },
+    {
+      "topic": "Membrane Transport",
+      "front": "Give an example of primary active transport.",
+      "back": "Na⁺/K⁺-ATPase pumping 3 Na⁺ out and 2 K⁺ in per ATP."
+    },
+    {
+      "topic": "Membrane Transport",
+      "front": "What is facilitated diffusion?",
+      "back": "Carrier-mediated transport down an electrochemical gradient without ATP use."
+    },
+    {
+      "topic": "Synaptic Transmission",
+      "front": "Role of acetylcholinesterase at the neuromuscular junction?",
+      "back": "Rapidly hydrolyzes acetylcholine to terminate signaling and prevent desensitization."
+    },
+    {
+      "topic": "Skeletal Muscle",
+      "front": "What is the power stroke triggered by?",
+      "back": "Release of inorganic phosphate from the myosin head after binding to actin."
+    },
+    {
+      "topic": "Smooth Muscle",
+      "front": "How is MLCK activated?",
+      "back": "Ca²⁺-calmodulin binding shifts MLCK into its active conformation to phosphorylate myosin light chains."
+    },
+    {
+      "topic": "Homeostasis",
+      "front": "Define feed-forward control.",
+      "back": "A preemptive response to an anticipated change, reducing reliance on feedback error signals."
+    }
+  ],
+  "study_blocks": [
+    {
+      "title": "Ion channels warm-up",
+      "focus": "Action Potentials",
+      "duration": 15,
+      "actions": [
+        "Sketch a neuron and label where voltage-gated Na⁺ and K⁺ channels dominate",
+        "Explain absolute vs relative refractory periods aloud"
+      ]
+    },
+    {
+      "title": "Transport comparison",
+      "focus": "Membrane Transport",
+      "duration": 20,
+      "actions": [
+        "Draw a Venn diagram for primary, secondary, and facilitated transport",
+        "List one physiological example of each"
+      ]
+    },
+    {
+      "title": "Synapse sequencing",
+      "focus": "Synaptic Transmission",
+      "duration": 15,
+      "actions": [
+        "Write the steps from presynaptic depolarization to neurotransmitter clearance",
+        "Note one drug or toxin that alters each step"
+      ]
+    },
+    {
+      "title": "Muscle contrast",
+      "focus": "Skeletal vs Smooth Muscle",
+      "duration": 20,
+      "actions": [
+        "List three similarities and three differences between skeletal and smooth muscle activation",
+        "Highlight how calcium acts differently in each"
+      ]
+    }
+  ]
+}
