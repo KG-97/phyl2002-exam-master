@@ -21,6 +21,7 @@ Interactive exam preparation tool for PHYL2002 (Cellular Physiology) with mnemon
 - `quiz [--mode mcq|short|mixed] [--count N] [--topic TOPIC] [--seed SEED]`: practice questions with immediate feedback.
 - `flashcards [--topic TOPIC] [--count N] [--seed SEED]`: step through flashcards interactively.
 - `plan [--focus TOPIC] [--minutes TOTAL]`: generate a study plan using curated study blocks.
+- `stats`: show counts of content items and topics covered.
 
 ### Examples
 
