@@ -48,3 +48,19 @@ Generate a 45-minute plan focused on membrane transport:
 ```bash
 python -m phyl2002_exam.cli plan --focus "Membrane Transport" --minutes 45
 ```
+
+## Deploy with Docker
+
+Build a lightweight container image and run any CLI command by passing arguments after the image name:
+
+```bash
+docker build -t phyl2002-exam .
+docker run --rm phyl2002-exam topics
+docker run --rm phyl2002-exam mnemonics --topic "Action Potentials"
+```
+
+By default the container shows the CLI help (`--help`) if no arguments are provided. Mount a volume if you extend the content locally and want those changes reflected at runtime:
+
+```bash
+docker run --rm -v "$PWD/phyl2002_exam:/app/phyl2002_exam" phyl2002-exam stats
+```
