@@ -28,7 +28,8 @@ def render_mnemonics(content: Dict[str, List[Dict]], topic: str | None, search: 
         print(f"  Why it helps: {wrap(item['explanation'])}")
 
 
-def evaluate_keywords(answer: str, keywords: List[str]) -> Tuple[int, List[str]]:
+def evaluate_keywords(answer: str, keywords: List[str] | None) -> Tuple[int, List[str]]:
+    keywords = [kw for kw in (keywords or []) if kw]
     normalized = answer.lower()
     matched = [kw for kw in keywords if kw.lower() in normalized]
     return len(matched), matched
@@ -48,7 +49,7 @@ def ask_mcq(question: Dict) -> bool:
 def ask_short(question: Dict) -> bool:
     print("\n" + wrap(question["stem"]))
     response = input("Your answer: ").strip()
-    keywords = question.get("keywords", [])
+    keywords = question.get("keywords") or []
     hits, matched = evaluate_keywords(response, keywords)
     if keywords:
         print(f"Key points: {', '.join(keywords)}")
@@ -151,6 +152,7 @@ def render_stats(content: Dict[str, List[Dict]]) -> None:
     questions = content.get("questions", [])
     mcq = sum(question.get("type") == "mcq" for question in questions)
     short = sum(question.get("type") == "short" for question in questions)
+    topics = topics_from_content(content)
 
     print("Content summary")
     print("-" * 40)
@@ -159,8 +161,11 @@ def render_stats(content: Dict[str, List[Dict]]) -> None:
     print(f"Flashcards: {len(content.get('flashcards', []))}")
     print(f"Study blocks: {len(content.get('study_blocks', []))}")
     print("Topics:")
-    for topic in topics_from_content(content):
-        print(f" • {topic}")
+    if topics:
+        for topic in topics:
+            print(f" • {topic}")
+    else:
+        print(" • No topics available")
 
 
 def build_parser() -> argparse.ArgumentParser:

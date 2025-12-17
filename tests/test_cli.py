@@ -23,6 +23,13 @@ def test_evaluate_keywords_matches_all():
     assert set(matched) == {"ATP", "pump"}
 
 
+def test_evaluate_keywords_accepts_missing_keywords():
+    hits, matched = cli.evaluate_keywords("Any response", None)
+
+    assert hits == 0
+    assert matched == []
+
+
 def test_ask_short_grades_empty_keywords_correct(monkeypatch):
     question = {
         "stem": "Describe anything",
@@ -61,3 +68,10 @@ def test_render_stats_reports_counts(content, capsys):
     assert "Questions" in output
     assert "Flashcards" in output
     assert "Topics" in output
+
+
+def test_render_stats_handles_no_topics(capsys):
+    cli.render_stats({"mnemonics": [], "questions": [], "flashcards": [], "study_blocks": []})
+    output = capsys.readouterr().out
+
+    assert "No topics available" in output
