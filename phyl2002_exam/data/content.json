@@ -47,6 +47,24 @@
       "title": "SENSOR → INTEGRATOR → EFFECTOR",
       "mnemonic": "Detect deviation → Compare to set point → Apply response",
       "explanation": "Basic negative feedback loop structure for physiological control."
+    },
+    {
+      "topic": "Autonomic Nervous System",
+      "title": "E for Exercise",
+      "mnemonic": "Epinephrine/exercise → increased heart rate, bronchodilation, and glucose mobilization",
+      "explanation": "Links sympathetic activation to the classic fight-or-flight responses mediated by epinephrine."
+    },
+    {
+      "topic": "Cardiac Physiology",
+      "title": "FAST for cardiac output",
+      "mnemonic": "Filling (preload) + Afterload + Stroke volume + Time (heart rate) shape output",
+      "explanation": "Reminds you that cardiac output depends on preload, afterload, stroke volume determinants, and heart rate."
+    },
+    {
+      "topic": "Renal Physiology",
+      "title": "ADH Adds AquaPores",
+      "mnemonic": "ADH → AQP2 insertion → More water reabsorption in collecting duct",
+      "explanation": "Summarizes how vasopressin increases water permeability to concentrate urine."
     }
   ],
   "questions": [
@@ -135,6 +153,34 @@
       "explanation": "Baroreceptor activation reduces sympathetic tone to counteract elevated blood pressure, opposing the original change."
     },
     {
+      "id": "mcq-7",
+      "type": "mcq",
+      "topic": "Cardiac Physiology",
+      "stem": "An increase in venous return will most directly increase stroke volume through which mechanism?",
+      "choices": [
+        "Lowering afterload by dilating arterioles",
+        "Increasing contractility via sympathetic stimulation",
+        "Stretching ventricular fibers to enhance crossbridge formation",
+        "Reducing heart rate to allow longer filling"
+      ],
+      "answer": "C",
+      "explanation": "Greater venous return increases end-diastolic volume, stretching ventricular fibers and boosting force via the Frank-Starling mechanism."
+    },
+    {
+      "id": "mcq-8",
+      "type": "mcq",
+      "topic": "Autonomic Nervous System",
+      "stem": "Which receptor is primarily responsible for bronchodilation during sympathetic activation?",
+      "choices": [
+        "α1 adrenergic",
+        "β1 adrenergic",
+        "β2 adrenergic",
+        "Muscarinic M3"
+      ],
+      "answer": "C",
+      "explanation": "β2 adrenergic receptors on airway smooth muscle mediate bronchodilation in response to sympathetic signals."
+    },
+    {
       "id": "short-1",
       "type": "short",
       "topic": "Action Potentials",
@@ -189,6 +235,34 @@
         "sustained force"
       ],
       "explanation": "After myosin is dephosphorylated, crossbridges can enter a latch state with slow detachment, sustaining force with minimal ATP consumption."
+    },
+    {
+      "id": "short-5",
+      "type": "short",
+      "topic": "Renal Physiology",
+      "stem": "Name two effects of angiotensin II that raise blood pressure.",
+      "keywords": [
+        "vasoconstriction",
+        "aldosterone",
+        "sodium reabsorption",
+        "thirst",
+        "ADH"
+      ],
+      "explanation": "Angiotensin II constricts arterioles, stimulates aldosterone to retain Na⁺, increases thirst, and promotes ADH release to conserve water."
+    },
+    {
+      "id": "short-6",
+      "type": "short",
+      "topic": "Cardiac Physiology",
+      "stem": "List two factors that increase cardiac contractility.",
+      "keywords": [
+        "sympathetic",
+        "beta-1",
+        "calcium",
+        "catecholamines",
+        "inotropy"
+      ],
+      "explanation": "Sympathetic stimulation via β1 receptors raises intracellular Ca²⁺ and increases inotropy; circulating catecholamines have similar effects."
     }
   ],
   "flashcards": [
@@ -231,6 +305,26 @@
       "topic": "Homeostasis",
       "front": "Define feed-forward control.",
       "back": "A preemptive response to an anticipated change, reducing reliance on feedback error signals."
+    },
+    {
+      "topic": "Autonomic Nervous System",
+      "front": "Which receptors mediate most parasympathetic effects on organs?",
+      "back": "Muscarinic acetylcholine receptors, especially M2 in the heart and M3 in smooth muscle/glands."
+    },
+    {
+      "topic": "Cardiac Physiology",
+      "front": "What does ejection fraction measure?",
+      "back": "The percentage of end-diastolic volume ejected per beat (stroke volume ÷ EDV)."
+    },
+    {
+      "topic": "Renal Physiology",
+      "front": "Where is most filtered glucose reabsorbed?",
+      "back": "In the proximal tubule via Na⁺/glucose symporters."
+    },
+    {
+      "topic": "Renal Physiology",
+      "front": "What is the primary action of aldosterone on the nephron?",
+      "back": "Increases Na⁺ reabsorption and K⁺ secretion in the distal nephron, raising water retention."
     }
   ],
   "study_blocks": [
@@ -268,6 +362,24 @@
       "actions": [
         "List three similarities and three differences between skeletal and smooth muscle activation",
         "Highlight how calcium acts differently in each"
+      ]
+    },
+    {
+      "title": "Autonomic quick map",
+      "focus": "Autonomic Nervous System",
+      "duration": 15,
+      "actions": [
+        "Sketch sympathetic vs parasympathetic pathways and label neurotransmitters",
+        "Match α1, β1, and β2 receptors with their main organ effects"
+      ]
+    },
+    {
+      "title": "Cardio-renal integration",
+      "focus": "Cardiac/Renal Physiology",
+      "duration": 20,
+      "actions": [
+        "Explain how RAAS changes preload and afterload",
+        "Write a mini-case linking dehydration to ADH release and urine concentration"
       ]
     }
   ]
