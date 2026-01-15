@@ -20,6 +20,7 @@ Interactive exam preparation tool for PHYL2002 (Cellular Physiology) with mnemon
 - `mnemonics [--topic TOPIC] [--search TERM]`: browse mnemonic phrases and explanations.
 - `quiz [--mode mcq|short|mixed] [--count N] [--topic TOPIC] [--seed SEED]`: practice questions with immediate feedback.
 - `flashcards [--topic TOPIC] [--count N] [--seed SEED]`: step through flashcards interactively.
+- `review [--topic TOPIC] [--count N] [--seed SEED] [--progress PATH]`: spaced repetition review for due flashcards.
 - `plan [--focus TOPIC] [--minutes TOTAL]`: generate a study plan using curated study blocks.
 - `stats`: show counts of content items and topics covered.
 
@@ -47,6 +48,12 @@ Generate a 45-minute plan focused on membrane transport:
 
 ```bash
 python -m phyl2002_exam.cli plan --focus "Membrane Transport" --minutes 45
+```
+
+Review due flashcards using spaced repetition scheduling:
+
+```bash
+python -m phyl2002_exam.cli review --count 6
 ```
 
 ## Deploy with Docker
