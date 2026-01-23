@@ -38,9 +38,16 @@ def evaluate_keywords(answer: str, keywords: List[str] | None) -> Tuple[int, Lis
 def ask_mcq(question: Dict) -> bool:
     print("\n" + wrap(question["stem"]))
     options = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    valid = {}
     for idx, choice in enumerate(question["choices"]):
-        print(f"  {options[idx]}. {choice}")
-    user = input("Your answer (letter): ").strip().upper()
+        letter = options[idx]
+        valid[letter] = choice
+        print(f"  {letter}. {choice}")
+    user = ""
+    while user not in valid:
+        user = input("Your answer (letter): ").strip().upper()
+        if user not in valid:
+            print(f"Please enter one of: {', '.join(valid)}")
     correct = user == question["answer"].upper()
     print(f"Answer: {question['answer']} — {question['explanation']}\n")
     return correct
