@@ -1,9 +1,12 @@
 import argparse
 import random
 import textwrap
+from datetime import date
+from pathlib import Path
 from typing import Dict, List, Tuple
 
 from .content import ensure_available, load_content, topics_from_content
+from .progress import DEFAULT_PROGRESS_PATH, is_due, load_progress, save_progress, update_sm2
 
 
 def wrap(text: str, width: int = 80) -> str:
@@ -107,6 +110,55 @@ def run_flashcards(content: Dict[str, List[Dict]], topic: str | None, count: int
         print(f"  ➜ {wrap(card['back'])}")
 
 
+def card_identifier(card: Dict) -> str:
+    return f"{card['topic']}::{card['front']}"
+
+
+def prompt_rating() -> int:
+    while True:
+        response = input("Rate recall (0-5, 5 = easy): ").strip()
+        if response.isdigit():
+            value = int(response)
+            if 0 <= value <= 5:
+                return value
+        print("Please enter a number from 0 to 5.")
+
+
+def run_review(
+    content: Dict[str, List[Dict]],
+    topic: str | None,
+    count: int,
+    seed: int | None,
+    progress_path: Path,
+) -> None:
+    if seed is not None:
+        random.seed(seed)
+
+    cards = content.get("flashcards", [])
+    if topic:
+        cards = [card for card in cards if topic.lower() in card["topic"].lower()]
+    cards = ensure_available(cards, "No flashcards found for that selection.")
+
+    today = date.today()
+    progress = load_progress(progress_path)
+    due_cards = [card for card in cards if is_due(progress.get(card_identifier(card)), today)]
+    due_cards = ensure_available(due_cards, "No flashcards are due for review today.")
+
+    subset = random.sample(due_cards, k=min(count, len(due_cards)))
+    reviewed = 0
+    for card in subset:
+        print(f"\n[{card['topic']}] {wrap(card['front'])}")
+        input("Press Enter to reveal...")
+        print(f"  ➜ {wrap(card['back'])}")
+        rating = prompt_rating()
+        state = update_sm2(progress.get(card_identifier(card)), rating, today)
+        progress[card_identifier(card)] = state.to_json()
+        reviewed += 1
+
+    save_progress(progress, progress_path)
+    print(f"\nReviewed {reviewed} card(s). Progress saved to {progress_path}.")
+
+
 def build_plan(blocks: List[Dict], focus: str | None, minutes: int) -> List[Dict]:
     filtered = blocks
     if focus:
@@ -196,6 +248,17 @@ def build_parser() -> argparse.ArgumentParser:
     flash_parser.add_argument("--count", type=int, default=4, help="Number of flashcards to review.")
     flash_parser.add_argument("--seed", type=int, help="Seed for reproducible ordering.")
 
+    review_parser = subparsers.add_parser("review", help="Spaced repetition review for flashcards.")
+    review_parser.add_argument("--topic", help="Filter flashcards by topic.")
+    review_parser.add_argument("--count", type=int, default=6, help="Number of due flashcards to review.")
+    review_parser.add_argument("--seed", type=int, help="Seed for reproducible ordering.")
+    review_parser.add_argument(
+        "--progress",
+        type=Path,
+        default=DEFAULT_PROGRESS_PATH,
+        help=f"Path to progress file (default: {DEFAULT_PROGRESS_PATH}).",
+    )
+
     plan_parser = subparsers.add_parser("plan", help="Generate a focused study plan.")
     plan_parser.add_argument("--focus", help="Topic to prioritize.")
     plan_parser.add_argument("--minutes", type=int, default=60, help="Total minutes available.")
@@ -217,6 +280,8 @@ def main(argv: List[str] | None = None) -> None:
             run_quiz(content, args.mode, args.count, args.topic, args.seed)
         elif args.command == "flashcards":
             run_flashcards(content, args.topic, args.count, args.seed)
+        elif args.command == "review":
+            run_review(content, args.topic, args.count, args.seed, args.progress)
         elif args.command == "plan":
             plan = build_plan(content.get("study_blocks", []), args.focus, args.minutes)
             render_plan(plan)
