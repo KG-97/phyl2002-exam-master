@@ -135,21 +135,29 @@
             { id: 101, topic: 'MEMBRANE', q: "What determines the Resting Membrane Potential (RMP)?", a: "High resting permeability to K+ (via leak channels) vs low Na+ permeability. The Na+/K+ pump maintains the gradients, but leak channels set the voltage.", type: 'conc' },
             { id: 102, topic: 'MEMBRANE', q: "Effect of Hyperkalemia on RMP?", a: "Increased extracellular K+ reduces the gradient for K+ efflux. Nernst for K+ becomes less negative -> Cell depolarizes -> Increased excitability (initially).", type: 'mech' },
             { id: 103, topic: 'MEMBRANE', q: "Nernst vs Goldman (GHK) Equations?", a: "Nernst: Equilibrium potential for ONE ion. GHK: Membrane potential based on permeabilities (P) and concentrations of ALL ions (K+, Na+, Cl-).", type: 'def' },
+            { id: 104, topic: 'MEMBRANE', q: "What happens to a cell in a hypertonic solution?", a: "Water leaves the cell because extracellular non-penetrating solute is higher -> cell shrinks (crenation).", type: 'conc' },
+            { id: 105, topic: 'MEMBRANE', q: "Why is urea considered hypotonic despite being isosmotic?", a: "Urea is a penetrating solute; it equilibrates across the membrane, so water still moves in and can cause swelling.", type: 'mech' },
 
             // ACTION POTENTIAL
             { id: 201, topic: 'ACTION', q: "Ionic basis of the Upstroke (Depolarization)?", a: "Opening of Voltage-Gated Na+ channels. P_Na increases >1000x, driving Vm towards E_Na (+60mV).", type: 'mech' },
             { id: 202, topic: 'ACTION', q: "Mechanism of Repolarization?", a: "1. Na+ channels Inactivate (ball & chain). 2. Voltage-Gated K+ channels Open (delayed rectifiers), increasing P_K and driving Vm back towards E_K.", type: 'mech' },
             { id: 203, topic: 'ACTION', q: "Absolute vs Relative Refractory Period?", a: "Absolute: Na+ channels inactivated (cannot reopen). Relative: Na+ channels recovered, but K+ channels still open (hyperpolarized state, needs stronger stimulus).", type: 'mech' },
             { id: 204, topic: 'ACTION', q: "Saltatory Conduction", a: "In myelinated axons, myelin insulates preventing leak. Action potentials regenerate only at Nodes of Ranvier. Increases speed and efficiency.", type: 'def' },
+            { id: 205, topic: 'ACTION', q: "What triggers voltage-gated Na+ channel opening?", a: "Membrane depolarization to threshold rapidly opens activation gates, allowing Na+ influx.", type: 'mech' },
+            { id: 206, topic: 'ACTION', q: "Why does myelination speed conduction?", a: "It increases membrane resistance and lowers capacitance, enabling faster saltatory conduction between nodes.", type: 'def' },
 
             // SYNAPSE
             { id: 301, topic: 'SYNAPSE', q: "Vesicle Fusion Trigger?", a: "Depolarization at terminal -> Opening of Voltage-Gated Ca2+ channels -> Ca2+ influx -> Binding to Synaptotagmin -> SNARE complex fusion.", type: 'mech' },
             { id: 302, topic: 'SYNAPSE', q: "IPSP Ionic Mechanism", a: "Inhibitory Post-Synaptic Potential. Usually caused by opening Cl- channels (influx) or K+ channels (efflux), keeping Vm away from threshold.", type: 'mech' },
             { id: 303, topic: 'SYNAPSE', q: "Spatial vs Temporal Summation", a: "Spatial: Multiple inputs at different locations firing at once. Temporal: Single input firing repeatedly in rapid succession.", type: 'def' },
+            { id: 304, topic: 'SYNAPSE', q: "What is the role of synaptotagmin?", a: "It senses Ca2+ influx and triggers SNARE-mediated vesicle fusion with the presynaptic membrane.", type: 'mech' },
+            { id: 305, topic: 'SYNAPSE', q: "EPSP ionic mechanism", a: "Excitatory Post-Synaptic Potential typically involves opening cation channels, allowing Na+ influx and depolarization.", type: 'mech' },
 
             // TRANSPORT
             { id: 401, topic: 'TRANSPORT', q: "Primary vs Secondary Active Transport", a: "Primary: Uses ATP directly (Na/K ATPase). Secondary: Uses energy from a gradient created by primary transport (e.g. SGLT1 uses Na+ gradient).", type: 'def' },
-            { id: 402, topic: 'TRANSPORT', q: "Fick's Law of Diffusion variables", a: "Rate depends on: Surface Area (A), Concentration Gradient (dC), Membrane Permeability (P), and is inversely proportional to Thickness/Distance.", type: 'conc' }
+            { id: 402, topic: 'TRANSPORT', q: "Fick's Law of Diffusion variables", a: "Rate depends on: Surface Area (A), Concentration Gradient (dC), Membrane Permeability (P), and is inversely proportional to Thickness/Distance.", type: 'conc' },
+            { id: 403, topic: 'TRANSPORT', q: "What distinguishes facilitated diffusion from simple diffusion?", a: "Facilitated diffusion uses membrane proteins and saturates; simple diffusion does not saturate and depends only on the gradient.", type: 'def' },
+            { id: 404, topic: 'TRANSPORT', q: "What is the net effect of the Na+/K+ ATPase per cycle?", a: "Three Na+ out and two K+ in, generating a net -1 charge inside (electrogenic).", type: 'mech' }
         ];
 
         // --- ICONS ---
